@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;500;600;700&display=swap");
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+/* Custom bullet points */
+.custom-bullet {
+  position: relative;
+  list-style: none;
+  padding-left: 1.5em; /* Adjust spacing as needed */
+  margin-bottom: 20px; /* gap between list items */
+}
+
+.custom-bullet::before {
+  content: "\2022"; /* Unicode character for a bullet point */
+  color: #2f66af;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  left: 0;
+}
+
+/* Customize the width and height of slick-dots */
+.slick-dots {
+  display: flex;
+  justify-content: center; /* Center the dots horizontally */
+  align-items: center; /* Center the dots vertically */
+  width: 100%; /* Make sure the dots cover the entire width */
+}
+
+/* Customize the individual dot's size and styling */
+.slick-dots li {
+  width: 25px; /* Set the width of each dot */
+  height: 4px; /* Set the height of each dot */
+  background-color: rgba(65, 105, 225, 0.43); /* Set the background color */
+  border-radius: 0; /* Remove border-radius for a rectangular shape */
+  cursor: default;
+}
+
+/* Customize the active dot */
+.slick-dots li.slick-active {
+  background-color: rgba(65, 105, 225, 0.73); /* Set the active dot color */
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animation-delay-5s {
+  animation: spin 5s linear infinite, spin-start 0s 1;
+}
+
+@keyframes spin-start {
+  from {
+    transform: rotate(0deg);
+  }
+}
+
+/* Underline on Hover effect */
+.underline-on-hover {
+  position: relative;
+  color: #1a2c79;
+}
+
+.underline-on-hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 15px;
+  width: 100%;
+  height: 2px;
+  background-color: #1a2c79; /* Adjust the color as needed */
+  transform: scaleX(0); /* Initially, the underline is scaled to zero */
+  transform-origin: 0% 50%;
+  transition: transform 0.3s ease; /* Adjust the animation duration and easing as needed */
+}
+
+.underline-on-hover:hover::after {
+  transform: scaleX(1); /* On hover, scale the underline to its full width */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-lightBlue text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+
+    scroll-behavior: smooth;
+  }
+}
+
+#message {
+  scroll-margin-top: 150px;
+}
